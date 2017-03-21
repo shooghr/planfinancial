@@ -1,0 +1,11 @@
+<%%= content_for :title do %>
+  Cadastro de <%= singular_table_name %>
+<%% end %>
+
+<%%= content_for :botoes do %>
+  <%%= render partial: "botoes", locals: { novo: false } %>
+<%% end %>
+
+<%%= render 'form' %>
+
+

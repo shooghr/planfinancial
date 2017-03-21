@@ -1,0 +1,13 @@
+<%= link_to(url_for(controller: controller, action: :show, id: object_id),
+:class=>"btn btn-default btn-sm", title:"Ver", id: "#{controller}-show") do %>
+<i class="fa fa-eye"></i>
+<% end %>
+
+<%= link_to(url_for(controller: controller, action: :edit, id: object_id),
+:class=>"btn btn-success btn-sm" , title:"Editar", id: "#{controller}-edit") do %>
+<i class="fa fa-pencil"></i>
+<% end %>
+
+<%= link_to(url_for(controller: controller,action: :destroy, id: object_id), method: :delete, data: { confirm: 'Tem certeza? essa ação não poderá ser desfeita' }, :class=>"btn btn-danger btn-sm no-ajaxify", title:"Apagar", id: "#{controller}-destroy") do %>
+<i class="fa fa-trash-o"></i>
+<% end %>

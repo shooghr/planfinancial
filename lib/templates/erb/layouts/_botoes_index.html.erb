@@ -1,0 +1,13 @@
+
+          <%= link_to( item, class: "btn btn-default btn-sm", title: "Ver Item") do %>
+            <i class="fa fa-eye"></i>
+          <% end %>
+          <%= link_to(botao_edit(model, item.id), class: "btn btn-success btn-sm" , title: "Editar Item") do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+
+          <%= link_to(item, method: :delete, data: { confirm: 'Tem certeza? essa ação não poderá ser desfeita' }, class: "btn btn-danger btn-sm", title: "Apagar Item") do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+
+
