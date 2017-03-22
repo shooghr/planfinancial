@@ -1,0 +1,52 @@
+<%= content_for :title do %>
+  Plans
+<% end %>
+
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Plans</h3>
+      </div>
+    </div>
+
+    <div class="title_right">
+      <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
+        <div class="input-group">
+          <%= render partial: "botoes", locals: { lista: false } %>
+        </div>
+      </div>
+    </div>
+
+    </br>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <table id="datatable" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                                      <th ><%= sort_link @q, :name %></th>
+                                    <th class="text-right" width="70%">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @plans.each do |plan| %>
+                  <tr>
+                                          <td ><%= plan.name %></td>
+                                        <td class="text-right actions">
+                      <%= render partial:'layouts/botoes_index', locals: { controller: "plans", object_id: plan.id } %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

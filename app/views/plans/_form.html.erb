@@ -1,0 +1,64 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3><%= action_name.titlecase %> Plan</h3>
+      </div>
+
+      <div class="title_right">
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <%= yield :botoes %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <br />
+             <%= form_for @plan, html: { class: 'form-horizontal form-label-left' } do |f| %>
+                  <% if @plan.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@plan.errors.count, "erro") %> impediu que plan fosse salvo:
+                        </h2>
+                        <ul>
+                          <% @plan.errors.full_messages.each do |msg| %>
+                            <li>
+                              <%= msg %>
+                            </li>
+                          <% end %>
+                        </ul>
+                      </div>
+                  <% end %>
+    
+                                    
+                      <div class="form-group">
+                                                        <%= f.label :name, class: 'control-label col-md-3 col-sm-3 col-xs-12' %>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <%= f.text_field :name, class: 'form-control col-md-7 col-xs-12' %>
+                              </div>
+                                                </div>
+                                    </br>
+                  <div class="form-group">
+                      <%=  button_tag(type: 'submit', class: "btn btn-primary") do %>
+                        <i class="fa fa-check-circle"></i>
+                        Salvar
+                      <% end %>
+
+                      <%= link_to  plans_path, class: "btn btn-default" do %>
+                        <i class="fa fa-times"></i>
+                        Cancelar
+                      <% end %>
+                  </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

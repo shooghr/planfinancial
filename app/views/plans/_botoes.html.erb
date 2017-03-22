@@ -1,0 +1,20 @@
+<div class="btn-group btn-group-sm pull-right hidden-print">
+  <%= link_to :back , class: "btn btn-xs btn-default" do %>
+    <i class="fa fa-fw fa-arrow-circle-o-left"></i>
+    Voltar
+  <% end %>
+
+  <% if not defined? lista or lista  %>
+    <%= link_to  plans_path, class: "btn  btn-default"  do %>
+      <i class="fa fa-fw fa-list-alt"></i>
+      Lista
+    <% end %>
+  <% end %>
+
+  <% if not defined? novo or novo %>
+    <%= link_to  new_plan_path, class: "btn  btn-success" do %>
+      <i class="fa fa-fw fa-plus"></i>
+      Novo
+    <% end %>
+  <% end %>
+</div>

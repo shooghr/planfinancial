@@ -1,0 +1,11 @@
+<%= content_for :title do %>
+  Cadastro de plan
+<% end %>
+
+<%= content_for :botoes do %>
+  <%= render partial: "botoes", locals: { novo: false } %>
+<% end %>
+
+<%= render 'form' %>
+
+
