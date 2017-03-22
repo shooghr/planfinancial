@@ -1,6 +1,8 @@
 class PlansController < ApplicationController
+  before_action :authenticate_member!
+  layout 'system'
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  #before_action :load_relationship, only: [:new, :edit, :update, :create]
+  # before_action :load_relationship, only: [:new, :edit, :update, :create]
 
   # GET /plans
   def index
@@ -9,8 +11,7 @@ class PlansController < ApplicationController
   end
 
   # GET /plans/1
-  def show
-  end
+  def show; end
   
   # GET /plans/new
   def new
@@ -18,8 +19,7 @@ class PlansController < ApplicationController
   end
 
   # GET /plans/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /plans
   def create
@@ -49,11 +49,11 @@ class PlansController < ApplicationController
 
   private
 
-    def set_plan
-      @plan = Plan.find(params[:id])
-    end
+  def set_plan
+    @plan = Plan.find(params[:id])
+  end
 
-    def plan_params
-      params.require(:plan).permit(:name)
-    end
+  def plan_params
+    params.require(:plan).permit(:name)
+  end
 end

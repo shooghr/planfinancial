@@ -1,3 +1,7 @@
 class HomeController < ApplicationController
-  def index;end
+  before_action :authenticate_member!
+
+  layout 'system'
+
+  def index; end
 end
