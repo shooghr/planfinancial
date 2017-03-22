@@ -11,6 +11,7 @@ gem 'puma', '~> 3.0'
 gem 'ransack'
 gem 'kaminari'
 gem 'devise'
+gem 'foreman'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
