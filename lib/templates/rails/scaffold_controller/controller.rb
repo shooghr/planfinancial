@@ -14,8 +14,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   # GET <%= route_url %>/1
-  def show
-  end
+  def show; end
   
   # GET <%= route_url %>/new
   def new
@@ -23,8 +22,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   end
 
   # GET <%= route_url %>/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST <%= route_url %>
   def create
@@ -54,16 +52,16 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   private
 
-    def set_<%= singular_table_name %>
-      @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
-    end
+  def set_<%= singular_table_name %>
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+  end
 
-    def <%= "#{singular_table_name}_params" %>
-      <%- if attributes_names.empty? -%>
-      params[<%= ":#{singular_table_name}" %>]
-      <%- else -%>
-      params.require(<%= ":#{singular_table_name}" %>).permit(<%= attributes_names.map { |name| ":#{name}" }.join(', ') %>)
-      <%- end -%>
-    end
+  def <%= "#{singular_table_name}_params" %>
+    <%- if attributes_names.empty? -%>
+    params[<%= ":#{singular_table_name}" %>]
+    <%- else -%>
+    params.require(<%= ":#{singular_table_name}" %>).permit(<%= attributes_names.map { |name| ":#{name}" }.join(', ') %>)
+    <%- end -%>
+  end
 end
 <% end -%>
