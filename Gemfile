@@ -1,36 +1,39 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.2'
+gem 'devise'
+gem 'jbuilder', '~> 2.5'
+gem 'kaminari'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.0.2'
 gem 'ransack'
-gem 'kaminari'
-gem 'devise'
-gem 'foreman'
 
-gem 'sass-rails', '~> 5.0'
+group :assets do
+  gem 'coffee-rails', '~> 4.2'
+  gem 'gentelella-rails'
+  gem 'jquery-rails'
+  gem 'modernizr-rails'
+  gem 'sass-rails', '~> 5.0'
+end
+
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
-
-gem 'jquery-rails'
-gem 'gentelella-rails'
-gem 'modernizr-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails', require: false
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-remote'
-  gem 'pry-byebug'
 end
 
 group :test do
+  gem 'rails-controller-testing'
+  gem 'rspec'
   gem 'rspec-core', '~> 3.5'
   gem 'rspec-expectations', '~> 3.5'
   gem 'rspec-mocks', '~> 3.5'
@@ -39,8 +42,10 @@ group :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'foreman'
   gem 'listen', '~> 3.0.5'
+  gem 'rubocop', '~> 0.47.1', require: false
+  gem 'web-console', '>= 3.3.0'
   # gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
 end
